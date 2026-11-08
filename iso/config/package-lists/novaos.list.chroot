@@ -1,0 +1,31 @@
+# NovaOS core package list. Every name here MUST exist in Debian 13 (trixie);
+# a wrong name fails the whole build. Optional extras live in hooks/live/0200-*.
+plasma-desktop
+sddm
+kde-config-sddm
+plasma-nm
+plasma-pa
+plasma-discover
+powerdevil
+bluedevil
+kscreen
+breeze
+dolphin
+konsole
+kate
+kcalc
+gwenview
+ark
+firefox-esr
+network-manager
+pipewire-audio
+udisks2
+upower
+xdg-user-dirs
+fonts-inter
+fonts-noto-core
+plymouth
+plymouth-themes
+sudo
+calamares
+calamares-settings-debian

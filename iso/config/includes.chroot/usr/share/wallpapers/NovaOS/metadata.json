@@ -1,0 +1,11 @@
+{
+    "KPlugin": {
+        "Id": "NovaOS",
+        "Name": "NovaOS",
+        "Description": "NovaOS default wallpaper",
+        "Authors": [{ "Name": "NovaOS project" }],
+        "License": "CC0-1.0",
+        "Version": "0.1.0"
+    },
+    "KPackageStructure": "Wallpaper/Images"
+}

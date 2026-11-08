@@ -1,0 +1,26 @@
+#!/bin/sh
+# Fail the build loudly if NovaOS files did not make it into the image.
+# (A silently missing theme would give a plain Debian ISO that only *looks* finished.)
+set -e
+bad=0
+for f in \
+    /usr/share/plasma/look-and-feel/org.novaos.desktop/metadata.json \
+    /usr/share/plasma/look-and-feel/org.novaos.desktop/contents/defaults \
+    /usr/share/plasma/look-and-feel/org.novaos.desktop/contents/layouts/org.kde.plasma.desktop-layout.js \
+    /usr/share/color-schemes/NovaDark.colors \
+    /usr/share/color-schemes/NovaLight.colors \
+    /usr/share/wallpapers/NovaOS/metadata.json \
+    /usr/share/wallpapers/NovaOS/contents/images/3840x2160.jpg \
+    /etc/novaos-release \
+    /etc/xdg/kdeglobals \
+    /etc/skel/Desktop/home.desktop \
+    /etc/skel/Desktop/trash.desktop
+do
+    [ -f "$f" ] || { echo "VERIFY FAILED: missing $f"; bad=1; }
+done
+grep -q 'LookAndFeelPackage=org.novaos.desktop' /etc/xdg/kdeglobals || { echo "VERIFY FAILED: kdeglobals default theme"; bad=1; }
+[ -x /usr/bin/plasmashell ] || { echo "VERIFY FAILED: plasmashell not installed"; bad=1; }
+[ -x /usr/bin/calamares ] || { echo "VERIFY FAILED: calamares not installed"; bad=1; }
+[ -x /usr/bin/sddm ] || [ -x /usr/sbin/sddm ] || { echo "VERIFY FAILED: sddm not installed"; bad=1; }
+[ "$bad" = 0 ] && echo "NovaOS verify: OK"
+exit $bad

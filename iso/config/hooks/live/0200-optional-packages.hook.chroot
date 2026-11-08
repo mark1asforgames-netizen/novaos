@@ -1,0 +1,13 @@
+#!/bin/sh
+# Optional extras: a failure here is logged but does NOT fail the build.
+export DEBIAN_FRONTEND=noninteractive
+apt-get update >/dev/null 2>&1 || true
+for pkg in kwin-x11 plasma-session-x11 ufw plasma-firewall \
+           firmware-linux firmware-iwlwifi firmware-realtek firmware-atheros; do
+    if apt-get install -y "$pkg" >/dev/null 2>&1; then
+        echo "optional package installed: $pkg"
+    else
+        echo "OPTIONAL PACKAGE FAILED (skipped): $pkg"
+    fi
+done
+exit 0

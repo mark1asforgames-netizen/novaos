@@ -1,0 +1,9 @@
+[kdeglobals][General]
+ColorScheme=NovaDark
+
+[kdeglobals][KDE]
+widgetStyle=Breeze
+
+[kwinrc][org.kde.kdecoration2]
+library=org.kde.breeze
+theme=Breeze

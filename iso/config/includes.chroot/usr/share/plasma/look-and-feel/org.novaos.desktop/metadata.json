@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Id": "org.novaos.desktop",
+        "Name": "NovaOS",
+        "Description": "NovaOS global theme: dark glass, top bar and floating dock",
+        "Authors": [{ "Name": "NovaOS project" }],
+        "License": "GPL-3.0-or-later",
+        "Version": "0.1.0",
+        "EnabledByDefault": true
+    },
+    "KPackageStructure": "Plasma/LookAndFeel"
+}
